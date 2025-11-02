@@ -9,8 +9,7 @@
 // Функція оголошує два параметри:
 
 // products — об’єкт, у якому ключі містять назви товарів, а їхні значення — кількість цих товарів. 
-// Наприклад, { apples: 2, grapes: 4 }.
-
+//            Наприклад, { apples: 2, grapes: 4 }.
 // containerSize — число, максимальна кількість одиниць товарів, яку в себе може вмістити контейнер.
 /* --------------------------------------------------------------------------------------------- */
 
@@ -21,7 +20,27 @@
 
 
 function isEnoughCapacity(products, containerSize) {
+    // Загальна кількість продуктів
+    let countProducts = 0;
 
+    // Варіант 1. Об'єкт перебирається за значеннями властивостей 
+    // const productValues=Object.values(products);
+    // for (let productValue of productValues) {
+    //     countProducts += productValue;
+    // }
+
+    // Варіант 2. Об'єкт перебирається за ключами властивостей 
+    const productKeys=Object.keys(products);
+    for (let key of productKeys) {
+        countProducts += products[key];
+    }
+
+    // Порівняння - чи помістяться всі товари в контейнер
+    if (countProducts <= containerSize) {
+        return true;
+    } else {
+        return false;
+    }
 }
 /* --------------------------------------------------------------------------------------------- */
 
